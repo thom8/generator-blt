@@ -1,0 +1,18 @@
+---
+machine:
+  hosts:
+    blt-project.local: 127.0.0.1
+  node:
+    version: 6.1.0
+dependencies:
+  cache_directories:
+    - ~/.composer/cache
+  override:
+    - rm -f /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
+    - npm install -g npm && npm install && npm link
+    - npm install -g yo
+    - yo blt --test
+test:
+  override:
+    # Check for composer.lock in blt_project directory.
+    - cat ~/$CIRCLE_PROJECT_REPONAME/blt_project/composer.lock

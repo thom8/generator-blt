@@ -1,0 +1,38 @@
+project:
+  # Everyone: This will determine the the directory name of the new repository.
+  # Dev Desktop users: this should match your local site name.
+  machine_name: '<%= data.blt_project %>'
+  # Used for enforcing correct git commit msg syntax.
+  prefix: '<%= data.blt_prefix %>'
+  human_name: '<%= data.blt_human_name %>'
+  profile:
+    name: '<%= data.blt_profile %>'
+    # Please ensure contrib profiles are also in your composer.json file.
+    contrib: true
+  # This is used to build front end artifacts. E.g., SASS compilation.
+  themes:
+    - thunder
+  # These are random strings used to configure the hash salt.
+  hash_salt: <%= data.blt_hash_salt %>
+
+# Configuration settings for new git repository.
+git:
+  default_branch: master
+  remotes:
+    # Defining git remotes allows builds deployed via CI.
+    - blt8@svn-5223.devcloud.hosting.acquia.com:blt8.git
+
+drush:
+  # You can set custom project aliases in drush/site-aliases/aliases.drushrc.php.
+  aliases:
+    # The remote environment from which the database will be pulled.
+    remote: <%= data.blt_project %>.test
+    # The local environment against which all local drush commands are run.
+    local: self
+    # The drush alias against which all ci commands are run.
+    ci: self
+
+# Hosting environment flags.
+# Examples: acsf (Acquia Cloud Site Factory), ac (Acquia Cloud)
+# hosting: "acsf"
+# hosting: "ac"

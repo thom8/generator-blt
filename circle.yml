@@ -9,6 +9,7 @@ dependencies:
     - ~/.composer/cache
   override:
     - rm -f /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
+    - composer global require drush/drush:8.*
     - npm install -g npm && npm install && npm link
     - npm install -g yo
     - yo blt --test

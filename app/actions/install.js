@@ -13,12 +13,12 @@ module.exports = function() {
         shell: true
     });
 
-    //if (this.props.blt_setup) {
-    //    // Setup new blt project.
-    //    this.spawnCommandSync('bash', ['blt.sh', 'local:setup'], {
-    //        cwd: this.destinationPath(this.props.blt_project),
-    //        shell: true
-    //    });
-    //}
+    if (this.props.blt_setup) {
+        // Setup new blt project.
+        this.spawnCommandSync('bash', ['blt.sh', 'local:setup'], {
+            cwd: this.destinationPath(this.props.blt_project),
+            shell: true
+        });
+    }
 
 };

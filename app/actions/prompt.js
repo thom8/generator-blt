@@ -71,12 +71,12 @@ module.exports = function() {
             message: 'Do you want to remove the temp blt project directory after the build?',
             default: true
         },
-        //{
-        //    type: 'confirm',
-        //    name: 'blt_setup',
-        //    message: 'Do want want to run setup for the new project?',
-        //    default: false
-        //},
+        {
+            type: 'confirm',
+            name: 'blt_setup',
+            message: 'Do want want to run setup for the new project?',
+            default: false
+        },
 
     ];
 
